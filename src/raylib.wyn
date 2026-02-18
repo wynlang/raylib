@@ -1,0 +1,29 @@
+// raylib — 2D/3D graphics, games, and creative coding for Wyn
+// Wraps raylib (https://www.raylib.com). Single C library, no dependencies.
+// Requires: brew install raylib (macOS) / apt install libraylib-dev (Linux)
+//
+// Usage:
+//   Raylib.init(800, 600, "My Game")
+//   while !Raylib.should_close() {
+//       Raylib.begin_drawing()
+//       Raylib.clear(255, 255, 255)
+//       Raylib.draw_rect(10, 10, 200, 100, 255, 0, 0)
+//       Raylib.draw_text("Score: 42", 10, 10, 20, 0, 0, 0)
+//       Raylib.draw_circle(400, 300, 50, 0, 0, 255)
+//       Raylib.end_drawing()
+//   }
+//   Raylib.close()
+//
+// Features: 2D/3D shapes, textures, sprites, audio, input, fonts, shaders
+// Platforms: macOS, Linux, Windows (+ Android/iOS via raylib)
+
+// TODO: Implement via C bindings to raylib
+// raylib is ideal for Wyn — single header, C API, cross-platform
+
+fn main() -> int {
+    println("raylib package — 2D/3D graphics and games for Wyn")
+    println("Wraps raylib for graphics, audio, input, shaders")
+    println("Platforms: macOS, Linux, Windows, Android, iOS")
+    println("Install: brew install raylib (macOS) / apt install libraylib-dev (Linux)")
+    return 0
+}

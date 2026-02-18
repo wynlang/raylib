@@ -1,0 +1,7 @@
+[project]
+name = "raylib"
+version = "0.1.0"
+description = "2D/3D graphics, games, and creative coding for Wyn (wraps raylib)"
+
+[build]
+requires = ["raylib"]  # brew install raylib / apt install libraylib-dev
