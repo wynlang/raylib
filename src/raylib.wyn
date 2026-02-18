@@ -1,29 +1,29 @@
 // raylib — 2D/3D graphics, games, and creative coding for Wyn
-// Wraps raylib (https://www.raylib.com). Single C library, no dependencies.
-// Requires: brew install raylib (macOS) / apt install libraylib-dev (Linux)
+// Wraps raylib. Requires: brew install raylib / apt install libraylib-dev
 //
 // Usage:
-//   Raylib.init(800, 600, "My Game")
-//   while !Raylib.should_close() {
-//       Raylib.begin_drawing()
-//       Raylib.clear(255, 255, 255)
-//       Raylib.draw_rect(10, 10, 200, 100, 255, 0, 0)
-//       Raylib.draw_text("Score: 42", 10, 10, 20, 0, 0, 0)
-//       Raylib.draw_circle(400, 300, 50, 0, 0, 255)
-//       Raylib.end_drawing()
+//   Raylib_init(800, 600, "My Game")
+//   while !Raylib_should_close() {
+//       Raylib_begin_drawing()
+//       Raylib_clear(40, 40, 40)
+//       Raylib_draw_rect(10, 10, 200, 100, 255, 0, 0)
+//       Raylib_draw_text("Hello!", 20, 20, 30, 255, 255, 255)
+//       Raylib_end_drawing()
 //   }
-//   Raylib.close()
-//
-// Features: 2D/3D shapes, textures, sprites, audio, input, fonts, shaders
-// Platforms: macOS, Linux, Windows (+ Android/iOS via raylib)
+//   Raylib_close()
 
-// TODO: Implement via C bindings to raylib
-// raylib is ideal for Wyn — single header, C API, cross-platform
+// Key codes (matching raylib)
+var KEY_RIGHT = 262
+var KEY_LEFT = 263
+var KEY_DOWN = 264
+var KEY_UP = 265
+var KEY_SPACE = 32
+var KEY_ENTER = 257
+var KEY_ESCAPE = 256
+var KEY_W = 87
+var KEY_A = 65
+var KEY_S = 83
+var KEY_D = 68
 
-fn main() -> int {
-    println("raylib package — 2D/3D graphics and games for Wyn")
-    println("Wraps raylib for graphics, audio, input, shaders")
-    println("Platforms: macOS, Linux, Windows, Android, iOS")
-    println("Install: brew install raylib (macOS) / apt install libraylib-dev (Linux)")
-    return 0
-}
+var MOUSE_LEFT = 0
+var MOUSE_RIGHT = 1

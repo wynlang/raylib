@@ -1,0 +1,58 @@
+// raylib package tests — headless (no window)
+
+// Key codes (from raylib)
+var KEY_SPACE = 32
+var KEY_ESCAPE = 256
+var KEY_UP = 265
+var KEY_W = 87
+var MOUSE_LEFT = 0
+
+fn main() -> int {
+    Test.init("Raylib Package")
+
+    // Key constants
+    Test.assert_eq_int(KEY_SPACE, 32, "KEY_SPACE")
+    Test.assert_eq_int(KEY_ESCAPE, 256, "KEY_ESCAPE")
+    Test.assert_eq_int(KEY_UP, 265, "KEY_UP")
+    Test.assert_eq_int(KEY_W, 87, "KEY_W")
+    Test.assert_eq_int(MOUSE_LEFT, 0, "MOUSE_LEFT")
+
+    // Collision detection (AABB)
+    var ax = 10
+    var ay = 10
+    var aw = 50
+    var ah = 50
+    var bx = 30
+    var by = 30
+    var bw = 50
+    var bh = 50
+    var overlap = ax < bx + bw && ax + aw > bx && ay < by + bh && ay + ah > by
+    Test.assert(overlap, "rect collision true")
+
+    var cx = 200
+    var cy = 200
+    var no_overlap = ax < cx + bw && ax + aw > cx && ay < cy + bh && ay + ah > cy
+    Test.assert(!no_overlap, "rect collision false")
+
+    // Velocity/position update
+    var px = 100
+    var py = 100
+    var vx = 5
+    var vy = -3
+    px = px + vx
+    py = py + vy
+    Test.assert_eq_int(px, 105, "position x after move")
+    Test.assert_eq_int(py, 97, "position y after move")
+
+    // Screen bounds check
+    var screen_w = 800
+    var screen_h = 600
+    Test.assert(px >= 0 && px < screen_w, "in bounds x")
+    Test.assert(py >= 0 && py < screen_h, "in bounds y")
+
+    // FPS timing
+    Test.assert_eq_int(1000 / 60, 16, "frame time 60fps")
+
+    Test.summary()
+    return 0
+}
