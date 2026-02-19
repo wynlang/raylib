@@ -1,23 +1,32 @@
 // raylib package tests — headless (no window)
 
-// Key codes (from raylib)
 var KEY_SPACE = 32
 var KEY_ESCAPE = 256
 var KEY_UP = 265
 var KEY_W = 87
 var MOUSE_LEFT = 0
 
-fn main() -> int {
-    Test.init("Raylib Package")
+test "KEY_SPACE" {
+    assert_eq(KEY_SPACE, 32)
+}
 
-    // Key constants
-    Test.assert_eq_int(KEY_SPACE, 32, "KEY_SPACE")
-    Test.assert_eq_int(KEY_ESCAPE, 256, "KEY_ESCAPE")
-    Test.assert_eq_int(KEY_UP, 265, "KEY_UP")
-    Test.assert_eq_int(KEY_W, 87, "KEY_W")
-    Test.assert_eq_int(MOUSE_LEFT, 0, "MOUSE_LEFT")
+test "KEY_ESCAPE" {
+    assert_eq(KEY_ESCAPE, 256)
+}
 
-    // Collision detection (AABB)
+test "KEY_UP" {
+    assert_eq(KEY_UP, 265)
+}
+
+test "KEY_W" {
+    assert_eq(KEY_W, 87)
+}
+
+test "MOUSE_LEFT" {
+    assert_eq(MOUSE_LEFT, 0)
+}
+
+test "rect collision true" {
     var ax = 10
     var ay = 10
     var aw = 50
@@ -26,33 +35,37 @@ fn main() -> int {
     var by = 30
     var bw = 50
     var bh = 50
-    var overlap = ax < bx + bw && ax + aw > bx && ay < by + bh && ay + ah > by
-    Test.assert(overlap, "rect collision true")
+    assert(ax < bx + bw && ax + aw > bx && ay < by + bh && ay + ah > by)
+}
 
+test "rect collision false" {
+    var ax = 10
+    var ay = 10
+    var aw = 50
+    var ah = 50
     var cx = 200
     var cy = 200
-    var no_overlap = ax < cx + bw && ax + aw > cx && ay < cy + bh && ay + ah > cy
-    Test.assert(!no_overlap, "rect collision false")
+    var bw = 50
+    var bh = 50
+    assert(!(ax < cx + bw && ax + aw > cx && ay < cy + bh && ay + ah > cy))
+}
 
-    // Velocity/position update
+test "position after move" {
     var px = 100
     var py = 100
-    var vx = 5
-    var vy = -3
-    px = px + vx
-    py = py + vy
-    Test.assert_eq_int(px, 105, "position x after move")
-    Test.assert_eq_int(py, 97, "position y after move")
+    px = px + 5
+    py = py + -3
+    assert_eq(px, 105)
+    assert_eq(py, 97)
+}
 
-    // Screen bounds check
-    var screen_w = 800
-    var screen_h = 600
-    Test.assert(px >= 0 && px < screen_w, "in bounds x")
-    Test.assert(py >= 0 && py < screen_h, "in bounds y")
+test "in bounds" {
+    var px = 105
+    var py = 97
+    assert(px >= 0 && px < 800)
+    assert(py >= 0 && py < 600)
+}
 
-    // FPS timing
-    Test.assert_eq_int(1000 / 60, 16, "frame time 60fps")
-
-    Test.summary()
-    return 0
+test "frame time 60fps" {
+    assert_eq(1000 / 60, 16)
 }
