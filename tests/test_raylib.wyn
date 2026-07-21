@@ -1,4 +1,4 @@
-// raylib package tests — headless (no window)
+// raylib package tests - headless (no window)
 
 var KEY_SPACE = 32
 var KEY_ESCAPE = 256

@@ -1,4 +1,4 @@
-# raylib — Official Wyn Package
+# raylib - Official Wyn Package
 
 2D/3D graphics, games, and creative coding for Wyn. Wraps [raylib](https://www.raylib.com).
 

@@ -1,4 +1,4 @@
-// raylib_native.c — C glue between Wyn and raylib
+// raylib_native.c - C glue between Wyn and raylib
 // Compile: cc -c raylib_native.c $(pkg-config --cflags raylib) -o raylib_native.o
 // Link: $(pkg-config --libs raylib)
 

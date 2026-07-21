@@ -1,4 +1,4 @@
-// raylib — 2D/3D graphics, games, and creative coding for Wyn
+// raylib - 2D/3D graphics, games, and creative coding for Wyn
 // Wraps raylib. Requires: brew install raylib / apt install libraylib-dev
 //
 // Usage:
