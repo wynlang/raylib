@@ -35,7 +35,7 @@ test "rect collision true" {
     var by = 30
     var bw = 50
     var bh = 50
-    assert(ax < bx + bw && ax + aw > bx && ay < by + bh && ay + ah > by)
+    assert(ax < bx + bw and ax + aw > bx and ay < by + bh and ay + ah > by)
 }
 
 test "rect collision false" {
@@ -47,7 +47,7 @@ test "rect collision false" {
     var cy = 200
     var bw = 50
     var bh = 50
-    assert(!(ax < cx + bw && ax + aw > cx && ay < cy + bh && ay + ah > cy))
+    assert(not (ax < cx + bw and ax + aw > cx and ay < cy + bh and ay + ah > cy))
 }
 
 test "position after move" {
@@ -62,8 +62,8 @@ test "position after move" {
 test "in bounds" {
     var px = 105
     var py = 97
-    assert(px >= 0 && px < 800)
-    assert(py >= 0 && py < 600)
+    assert(px >= 0 and px < 800)
+    assert(py >= 0 and py < 600)
 }
 
 test "frame time 60fps" {
