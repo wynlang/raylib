@@ -16,28 +16,35 @@ wyn pkg install github.com/wynlang/raylib
 ## Usage
 
 ```wyn
-Raylib_init(800, 600, "My Game")
+import raylib
 
-while !Raylib_should_close() {
-    Raylib_begin_drawing()
-    Raylib_clear(40, 40, 40)
+raylib.Raylib_init(800, 600, "My Game")
+var player_x = 100
+
+while raylib.Raylib_should_close() == 0 {
+    raylib.Raylib_begin_drawing()
+    raylib.Raylib_clear(40, 40, 40)
 
     // Draw shapes
-    Raylib_draw_rect(10, 10, 200, 100, 255, 0, 0)
-    Raylib_draw_circle(400, 300, 50, 0, 255, 0)
-    Raylib_draw_line(0, 0, 800, 600, 255, 255, 0)
+    raylib.Raylib_draw_rect(10, 10, 200, 100, 255, 0, 0)
+    raylib.Raylib_draw_circle(400, 300, 50, 0, 255, 0)
+    raylib.Raylib_draw_line(0, 0, 800, 600, 255, 255, 0)
 
     // Draw text
-    Raylib_draw_text("Score: 42", 10, 10, 30, 255, 255, 255)
+    raylib.Raylib_draw_text("Score: 42", 10, 10, 30, 255, 255, 255)
 
-    // Input
-    if Raylib_is_key_down(KEY_RIGHT) { player_x += 5 }
-    if Raylib_is_mouse_pressed(MOUSE_LEFT) { shoot() }
+    // Input (262 = KEY_RIGHT, 0 = MOUSE_LEFT — see Key Constants below)
+    if raylib.Raylib_is_key_down(262) == 1 {
+        player_x = player_x + 5
+    }
+    if raylib.Raylib_is_mouse_pressed(0) == 1 {
+        print("click at " + raylib.Raylib_mouse_x().to_string() + "," + raylib.Raylib_mouse_y().to_string())
+    }
 
-    Raylib_end_drawing()
+    raylib.Raylib_end_drawing()
 }
 
-Raylib_close()
+raylib.Raylib_close()
 ```
 
 ## API
@@ -87,4 +94,4 @@ Raylib_close()
 wyn run tests/test_raylib.wyn
 ```
 
-12 tests: key constants, collision detection, movement, bounds checking, FPS timing.
+10 tests: key constants, collision detection, movement, bounds checking, FPS timing.

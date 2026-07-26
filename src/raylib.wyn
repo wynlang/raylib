@@ -3,7 +3,7 @@
 //
 // Usage:
 //   Raylib_init(800, 600, "My Game")
-//   while !Raylib_should_close() {
+//   while Raylib_should_close() == 0 {
 //       Raylib_begin_drawing()
 //       Raylib_clear(40, 40, 40)
 //       Raylib_draw_rect(10, 10, 200, 100, 255, 0, 0)
@@ -11,6 +11,29 @@
 //       Raylib_end_drawing()
 //   }
 //   Raylib_close()
+
+// ---- Native bindings (implemented in src/raylib_native.c) ------------------
+
+extern fn Raylib_init(width: int, height: int, title: string);
+extern fn Raylib_should_close() -> int;
+extern fn Raylib_begin_drawing();
+extern fn Raylib_end_drawing();
+extern fn Raylib_clear(r: int, g: int, b: int);
+extern fn Raylib_draw_rect(x: int, y: int, w: int, h: int, r: int, g: int, b: int);
+extern fn Raylib_draw_rect_lines(x: int, y: int, w: int, h: int, r: int, g: int, b: int);
+extern fn Raylib_draw_circle(cx: int, cy: int, radius: int, r: int, g: int, b: int);
+extern fn Raylib_draw_line(x1: int, y1: int, x2: int, y2: int, r: int, g: int, b: int);
+extern fn Raylib_draw_text(text: string, x: int, y: int, size: int, r: int, g: int, b: int);
+extern fn Raylib_text_width(text: string, size: int) -> int;
+extern fn Raylib_is_key_pressed(key: int) -> int;
+extern fn Raylib_is_key_down(key: int) -> int;
+extern fn Raylib_mouse_x() -> int;
+extern fn Raylib_mouse_y() -> int;
+extern fn Raylib_is_mouse_pressed(button: int) -> int;
+extern fn Raylib_frame_time() -> float;
+extern fn Raylib_time() -> float;
+extern fn Raylib_fps() -> int;
+extern fn Raylib_close();
 
 // Key codes (matching raylib)
 var KEY_RIGHT = 262
